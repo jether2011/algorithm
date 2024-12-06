@@ -220,6 +220,91 @@ class Solution {
 }
 ```
 
+## Move Zeroes
+```java
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int zeroes = 0;
+        final List<Integer> others = new ArrayList<>();
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                zeroes++;
+            } else {
+                others.add(nums[i]);
+            }
+        }
+        
+        for (int i = 0; i < zeroes; i++) {
+            others.add(0);
+        }
+        
+        for (int i = 0; i < others.size(); i++) {
+            nums[i] = others.get(i);
+        }
+    }
+}
+```
+
+## Valid Sudoku
+```java
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        final int BOARD = 9;
+        boolean[][] row = new boolean[BOARD][BOARD];
+        boolean[][] col = new boolean[BOARD][BOARD];
+        boolean[][] sub = new boolean[BOARD][BOARD];
+        
+        for (int i = 0; i < BOARD; ++i) {
+            for (int j = 0; j < BOARD; ++j) {
+                char c = board[i][j];
+                
+                if (c == '.') {
+                    continue;
+                }
+                
+                int num = c - '0' - 1;
+                int k = i / 3 * 3 + j / 3;
+                
+                if (row[i][num] || col[j][num] || sub[k][num]) {
+                    return false;
+                }
+                
+                row[i][num] = true;
+                col[j][num] = true;
+                sub[k][num] = true;
+            }
+        }
+        
+        return true;
+    }
+}
+```
+
+## Rotate Imagem
+```java
+class Solution {
+    public void rotate(int[][] matrix) {
+        int n = matrix.length;
+        
+        for (int i = 0; i < n >> 1; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int t = matrix[i][j];
+                matrix[i][j] = matrix[n - i - 1][j];
+                matrix[n - i - 1][j] = t;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                int t = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = t;
+            }
+        }
+    }
+}
+```
+
 ## StringToCharacterArray
 ```java
 /**
