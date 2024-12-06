@@ -1,3 +1,44 @@
+## Reverse String
+```java
+class Solution {
+    public void reverseString(char[] s) {
+        final List<Character> list = new ArrayList<>();
+        
+        for (int i = s.length - 1; i >= 0; i--) {
+            list.add(new Character(s[i]));
+        }
+        
+        for (int i = 0; i < list.size(); i++) {
+            s[i] = list.get(i);
+        }
+    }
+}
+```
+
+## Reverse Integer
+```java
+class Solution {
+    public int reverse(int x) {
+        final StringBuilder builder = new StringBuilder();
+        final String reverse = String.valueOf(x);
+        
+        for (int i = reverse.length() - 1; i >= 0; i--) {
+            char value = reverse.charAt(i);
+            
+            if (value != '-') {
+                builder.append(value); 
+            }
+        }
+        
+        try {
+            final int result = Integer.valueOf(builder.toString());
+            return (x >= 0 ? result : (result * -1));    
+        } catch (final Exception ex) {
+            return 0;
+        }
+    }
+}
+```
 
 ## StringToCharacterArray
 ```java
