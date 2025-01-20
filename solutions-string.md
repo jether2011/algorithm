@@ -1,3 +1,27 @@
+## Grouping Anagrams
+```java
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        final Map<String, List<String>> map = new HashMap<>();
+
+        for (String word : strs) {
+            char[] letters = word.toCharArray();
+            Arrays.sort(letters);
+
+            String ordered = new String(letters);
+            
+            //First, check if the key already exists, if not, create the new list
+            //Second, the word is added to the map into the new list created
+            map.computeIfAbsent(ordered, k -> new ArrayList<>()).add(word);
+        }
+
+        // O(N * Mlog)
+        // System.out.println(map.values());
+        return new ArrayList<>(map.values()); //[ate = [eat, tea, ate], bat = [bat], nat = [tan, nat]]
+    }
+}
+```
+
 ## Valid Anagram
 ```java
 class Solution {
