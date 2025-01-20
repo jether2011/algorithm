@@ -45,14 +45,13 @@ class Solution implements Calculable {
 class Solution {  
     public int validateDuplicates(String input) {  
         final Set<Character> duplicates = new HashSet<>(); 
-        final Set<Character> notDuplicates = new HashSet<>();  
-        Input = input.toLowerCase(); 
+        final Set<Character> notDuplicates = new HashSet<>(); 
 
         for (char c: input.toCharArray()) { 
             if (notDuplicated.contains(c)) { 
                 duplicates.add(c); 
             } else { 
-                notDuplicated.add(c); 
+                notDuplicates.add(c); 
             } 
         }
 
