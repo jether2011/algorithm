@@ -50,7 +50,7 @@ class Solution {
 
         for (char c: input.toCharArray()) { 
             if (notDuplicated.contains(c)) { 
-                duplicated.add(c); 
+                duplicates.add(c); 
             } else { 
                 notDuplicated.add(c); 
             } 
