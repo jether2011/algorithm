@@ -1,3 +1,26 @@
+## Valid Anagram
+```java
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        final int sLength = s.length();
+        final int tLength = t.length();
+        
+        if (sLength != tLength) return false;
+        
+        final char[] sChars = s.toCharArray();
+        final char[] tChars = t.toCharArray();
+        
+        Arrays.sort(sChars);
+        Arrays.sort(tChars);
+        
+        s = new String(sChars);
+        t = new String(tChars);
+        
+        return s.equals(t);
+    }
+}
+```
+
 ## Reverse String
 ```java
 class Solution {
