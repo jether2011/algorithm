@@ -1,3 +1,44 @@
+## Encode and Decode Strings
+```java
+class Solution {
+    private final String separator = "|";
+
+    public String encode(List<String> strs) {
+        final StringBuilder builder = new StringBuilder();
+
+        if (strs.size() == 1 && strs.get(0).isEmpty()) return separator;
+
+        if (strs.isEmpty()) return "";
+
+        for (int i = 0; i < strs.size(); i++) {
+            builder.append(strs.get(i));
+
+            if (i < (strs.size() - 1)) builder.append(separator);
+        }
+
+        return builder.toString();
+    }
+
+    public List<String> decode(String str) {
+        if (str.equals(separator)) {
+            return Arrays.asList(getBlankValue());
+        }
+
+        if (str.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        final String[] words = str.split("\\" + separator);
+
+        return Arrays.asList(words);
+    }
+
+    private String[] getBlankValue() {
+        return new String[] {""};
+    }
+}
+```
+
 ## Grouping Anagrams
 ```java
 class Solution {
