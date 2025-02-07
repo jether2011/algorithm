@@ -1,3 +1,29 @@
+## Two Sum II - Input Array Is Sorted
+```java
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        final Map<Integer, Integer> map = new HashMap<>();
+        
+        for (int i = 0; i < numbers.length; i++) {
+            int value = target - numbers[i];
+            // System.out.println(i + ": " + numbers[i] + " - " + value);
+
+            if (map.containsKey(value)) {
+                return new int[] { plusOne(map.get(value)), plusOne(i) };
+            }
+
+            map.put(numbers[i], i);
+        }
+
+        return null;
+    }
+
+    private int plusOne(int value) {
+        return value + 1;
+    }
+}
+```
+
 ## Two Sum 
 ```java
 class Solution {  
