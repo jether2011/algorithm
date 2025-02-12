@@ -244,6 +244,33 @@ class Solution {
     }
 }
 ```
+```java
+class Solution {
+    public int[] plusOne(int[] digits) {
+        final int max = digits.length - 1;
+        
+        for (int i = max; i >= 0; i--) {
+            int last = digits[i];
+
+            if (last < 9) {
+                digits[i]++;
+                return digits;
+            }
+
+            digits[i] = 0;
+        }
+
+        final int[] result = new int[max + 2];
+        result[0] = 1;
+
+        for (int i = 1; i < result.length - 1; i++) {
+            result[i] = digits[i];
+        }
+
+        return result;
+    }
+}
+```
 
 ## Move Zeroes
 ```java
