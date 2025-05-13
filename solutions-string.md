@@ -29,18 +29,20 @@ class Main {
         //System.out.println("'" + reverse("a good example 1 4") + "'");
         System.out.println("'" + reverse("hello   world") + "'");
     }
+
     public static String reverse (String in) {
         final StringBuilder builder = new StringBuilder();
         final String[] arr = in.split(" ");
+
         for (int i = arr.length - 1; i >= 0; i--) {
            final String s = arr[i].trim(); 
-           if (s.equals("")) continue;  
            builder.append(s);
  
-           if (i > 0) {
+           if (i > 0 && !s.equals("")) {
              builder.append(" ");
            } 
-        }    
+        }
+  
         return builder.toString().trim();
     }
 }
