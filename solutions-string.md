@@ -1,3 +1,51 @@
+## Reverse String
+```java
+/**
+Given an input string s, reverse the order of the words.
+A word is defined as a sequence of non-space characters. The words in s will be separated by at least one space.
+Return a string of the words in reverse order concatenated by a single space.
+Note that s may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.
+ 
+Example 1:
+Input: s = “the sky is blue” Output: “blue is sky the”
+ 
+Example 2:
+Input: s = “ hello world “ Output: “world hello” Explanation: Your reversed string should not contain leading or trailing spaces.
+ 
+Example 3:
+Input: s = “a good example” Output: “example good a” Explanation: You need to reduce multiple spaces between two words to a single space in the reversed string.
+ 
+Constraints:
+1 <= s.length <= 1000
+ 
+s contains English letters (upper-case and lower-case), digits, and spaces ‘ ‘.
+*/
+import java.io.*;
+import java.util.*;
+ 
+class Main {
+    public static void main(String[] args) {
+        //System.out.println("'" + reverse("the sky is blue") + "'");
+        //System.out.println("'" + reverse("a good example 1 4") + "'");
+        System.out.println("'" + reverse("hello   world") + "'");
+    }
+    public static String reverse (String in) {
+        final StringBuilder builder = new StringBuilder();
+        final String[] arr = in.split(" ");
+        for (int i = arr.length - 1; i >= 0; i--) {
+           final String s = arr[i].trim(); 
+           if (s.equals("")) continue;  
+           builder.append(s);
+ 
+           if (i > 0) {
+             builder.append(" ");
+           } 
+        }    
+        return builder.toString().trim();
+    }
+}
+```
+
 ## Encode and Decode Strings
 ```java
 class Solution {
