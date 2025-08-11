@@ -1,3 +1,66 @@
+## Simplify Path
+```java
+/**
+Explanation of Key Steps
+- Splitting
+We split("/") to break the input into components between slashes.
+
+- Stack Operations
+Push each valid directory name.
+Pop when encountering .. (going “up” one level).
+Ignore empty strings ("") and ".".
+
+- Reconstruction
+Since we pushed onto the top of the deque, popping yields names in reverse order. We prepend each popped name (with a leading /) to build the final path. If the stack ends up empty, we return "/".
+
+- Complexity
+Time: O(N), where N is the length of the path (each split, push, pop, and insert is O(1) amortized).
+Space: O(N) for storing components in the stack.
+
+- Pattern 
+This solution exemplifies the Stack pattern—ideal whenever you need last-in, first-out behavior to “undo” or “backtrack” through a sequence of operations.
+*/
+// Use a deque as our stack for directory names
+// 1. Split the path by '/'
+// 2. Process each component
+//// skip empty segments and “.”
+//// pop one directory if possible
+//// valid directory name — push onto stack
+// 3. Rebuild the canonical path
+//// If stack is empty, result is "/"
+//// Otherwise, pop off into a StringBuilder to reverse order
+class Solution {
+    public String simplifyPath(String path) {
+        final Deque<String> stack = new ArrayDeque<>();
+        final String[] folders = path.split("/");
+
+        for (final String folder : folders) {
+            if (folder.isEmpty() || folder.equals(".")) {
+                continue;
+            }
+
+            if (folder.equals("..")) {
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                }
+            } else {
+                stack.push(folder);
+            }
+        }
+
+        if (stack.isEmpty()) {
+            return "/";
+        }
+
+        final StringBuilder builder = new StringBuilder();
+        while (!stack.isEmpty()) {
+            builder.insert(0, "/" + stack.pop());
+        }
+        return builder.toString();
+    }
+}
+```
+
 ## Reverse String
 ```java
 /**
