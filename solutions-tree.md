@@ -1,3 +1,5 @@
+## Smallest Common Region
+```java
 import java.util.*;
 
 /*
@@ -66,3 +68,4 @@ public class SmallestCommonRegion {
         System.out.println(findSmallestRegion(regions, "Oaxaca", "Puebla"));       // Mexico
     }
 }
+```
