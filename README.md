@@ -8,3 +8,5 @@ Best website to study:
 [Array](solutions-array.md)
 
 [String](solutions-string.md)
+
+[Tree](solutions-tree.md)
